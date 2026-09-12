@@ -1,0 +1,214 @@
+/* Cross-cutting responsive fixes (imported last) */
+
+/* -- Fluid site chrome -- */
+@media (max-width: 480px) {
+  :root {
+    --site-gutter: 16px;
+    --site-pad-left: 12px;
+    --site-pad-right: 10px;
+  }
+}
+
+/* -- Prevent horizontal scroll from oversized children -- */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* -- Logo: keep full name readable on small phones -- */
+@media (max-width: 420px) {
+  .logo-word {
+    font-size: 11px;
+    letter-spacing: -0.04em;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .nav {
+    gap: 10px;
+    height: 52px;
+    padding: 0 10px 0 12px;
+  }
+
+  .nav-wrap {
+    padding: 10px var(--site-gutter);
+  }
+
+  .nav-spacer {
+    height: 72px;
+  }
+}
+
+/* -- Nav drawer: viewport units + safe area -- */
+.nav-drawer {
+  height: 100dvh;
+  max-height: 100dvh;
+  padding-top: max(18px, env(safe-area-inset-top));
+  padding-bottom: max(28px, env(safe-area-inset-bottom));
+  padding-right: max(18px, env(safe-area-inset-right));
+}
+
+/* -- Heroes: landscape / short viewports -- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .home-hero,
+  .service-hero {
+    min-height: auto;
+    padding: 88px 20px 40px;
+  }
+
+  .home-hero h1,
+  .service-hero h1 {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+
+  .home-hero p,
+  .service-hero-lead {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .contact-hero {
+    min-height: 0;
+    height: auto;
+    max-height: 70vh;
+    margin-bottom: -64px;
+  }
+
+  .contact-section {
+    min-height: auto;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -- Home hero: phones -- */
+@media (max-width: 700px) {
+  .home-hero {
+    padding: 104px var(--site-gutter) 48px;
+  }
+
+  .home-hero h1 {
+    max-width: none;
+    width: 100%;
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .home-hero p {
+    max-width: 34ch;
+    font-size: 15px;
+  }
+}
+
+/* -- Home differentiators: wrap mid-tablet headlines -- */
+@media (max-width: 980px) {
+  .home-different-header h2 {
+    white-space: normal;
+  }
+}
+
+/* -- Service left heroes: drop double content inset on small screens -- */
+@media (max-width: 700px) {
+  .service-hero--left .service-hero-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .home-hero,
+  .service-hero {
+    margin-top: -72px;
+  }
+}
+
+/* -- BI covers stagger: clear on tablet 2-col too -- */
+@media (max-width: 980px) {
+  .bicovers-card:nth-child(1),
+  .bicovers-card:nth-child(3) {
+    transform: none;
+  }
+
+  .mdiff-header h2,
+  .bidiff-header h2 {
+    white-space: normal;
+  }
+}
+
+/* -- Market different accent: keep inside media frame -- */
+.mdiff-media {
+  overflow: hidden;
+}
+
+.mdiff-media-card {
+  inset: 28px 0 0 28px;
+}
+
+/* -- Contact page aside: single column on phones -- */
+@media (max-width: 600px) {
+  .contact-page-aside {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-value {
+    word-break: break-word;
+  }
+}
+
+/* -- Form inputs: 16px to avoid iOS focus zoom -- */
+@media (max-width: 700px) {
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .contact-page-form input,
+  .contact-page-form textarea,
+  .contact-page-form select {
+    font-size: 16px;
+  }
+}
+
+/* -- FAQ open answers: stop clipping long copy -- */
+.faq-item.open .faq-a {
+  max-height: 2000px;
+}
+
+@media (max-width: 980px) {
+  .faq-item.open .faq-a {
+    max-height: 2000px;
+  }
+}
+
+/* -- Footer: ensure columns breathe on tiny screens -- */
+@media (max-width: 480px) {
+  .footer-tag {
+    font-size: 22px;
+    max-width: none;
+  }
+}
+
+/* -- Legal pages: tighter top gap under mobile nav -- */
+@media (max-width: 420px) {
+  .legal-page {
+    padding-top: 12px;
+  }
+}
+
+/* -- Compliance / handles / how-we-work: extra small polish -- */
+@media (max-width: 480px) {
+  .bicovers-grid,
+  .home-services-grid {
+    gap: 14px;
+  }
+
+  .rchandles-media {
+    min-height: 220px;
+    max-height: 300px;
+  }
+
+  .rcwork-media {
+    max-width: 100%;
+  }
+}
