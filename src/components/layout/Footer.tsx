@@ -28,7 +28,7 @@ function InstagramIcon() {
 }
 
 const SOCIALS: { label: string; icon: ReactNode; href?: string }[] = [
-  { label: "Twitter", icon: "𝕏" },
+  { label: "Twitter", icon: "𝕏", href: "https://x.com/YusufMoon713" },
   {
     label: "LinkedIn",
     icon: "in",
