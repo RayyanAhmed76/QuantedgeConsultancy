@@ -91,7 +91,7 @@ export default function ContactForm() {
     }
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/consultancy/api/contact", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },
