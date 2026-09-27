@@ -48,8 +48,8 @@
   max-width: 34px;
   max-height: 34px;
   background-color: var(--accent);
-  -webkit-mask-image: url("/assets/logo_without_text.png");
-  mask-image: url("/assets/logo_without_text.png");
+  -webkit-mask-image: url("/consultancy/assets/logo_without_text.png");
+  mask-image: url("/consultancy/assets/logo_without_text.png");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
