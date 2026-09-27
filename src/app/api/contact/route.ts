@@ -93,6 +93,12 @@ function requestOrigin(request: Request): string | null {
 
 function allowedOrigins(): Set<string> {
   const origins = new Set<string>();
+
+  // Live custom domain (www + apex) + direct Vercel preview host
+  origins.add("https://www.quantedgedatasolutions.com");
+  origins.add("https://quantedgedatasolutions.com");
+  origins.add("https://quantedge-consultancy.vercel.app");
+
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "").trim();
   if (siteUrl) {
     try {
@@ -101,6 +107,21 @@ function allowedOrigins(): Set<string> {
       /* ignore bad SITE_URL */
     }
   }
+
+  // Optional comma-separated extras, e.g. preview URLs
+  const extra = (process.env.ALLOWED_ORIGINS || "").trim();
+  if (extra) {
+    for (const part of extra.split(",")) {
+      const value = part.trim();
+      if (!value) continue;
+      try {
+        origins.add(value.startsWith("http") ? new URL(value).origin : value);
+      } catch {
+        /* ignore */
+      }
+    }
+  }
+
   // Local Next defaults
   origins.add("http://localhost:3000");
   origins.add("http://127.0.0.1:3000");
